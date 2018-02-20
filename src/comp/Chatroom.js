@@ -18,6 +18,7 @@ class Chatroom extends Component {
     this.handleUsername = this.handleUsername.bind(this);
     this.handleMyMsg = this.handleMyMsg.bind(this);
     this.sendChat = this.sendChat.bind(this);
+    this.enterStickerPage = this.enterStickerPage.bind(this);
   }
 
   componentDidMount() {
@@ -62,6 +63,10 @@ class Chatroom extends Component {
     this.socket.emit("sendChat", msg);
   }
 
+  enterStickerPage(){
+    this.props.enterStickerPage(true);
+  }
+
   render() {
 
     var config = null;
@@ -91,6 +96,9 @@ class Chatroom extends Component {
           onChange={this.handleMyMsg} className="textInputs"/>
           <br/><br/>
           <button onClick={this.sendChat} className="chatroomButtons">Send</button>
+
+          <br/><hr/><br/>
+          <button onClick={this.enterStickerPage}>ENTER STICKER PAGE</button>
         </div>
         </div>
       )

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Chatroom from "./comp/Chatroom";
 import Landing from "./comp/Landing";
+import Sticker from "./comp/Sticker";
 
 class App extends Component {
 
@@ -10,15 +11,25 @@ class App extends Component {
 
     this.state = {
       landingDisplay:true,
-      chatroomDisplay:false
+      chatroomDisplay:false,
+      stickerDisplay:false
     }
     this.enterChatroom = this.enterChatroom.bind(this);
+    this.enterStickerPage = this.enterStickerPage.bind(this);
   }
 
   enterChatroom(show){
     this.setState({
       landingDisplay:false,
-      chatroomDisplay:true
+      chatroomDisplay:true,
+      stickerDisplay:false
+    })
+  }
+  enterStickerPage(show){
+    this.setState({
+      landingDisplay:false,
+      chatroomDisplay:false,
+      stickerDisplay:true
     })
   }
 
@@ -29,7 +40,9 @@ class App extends Component {
     if(this.state.landingDisplay === true){
       mycomp = <Landing enterChatroom={this.enterChatroom}/>;
     } else if(this.state.chatroomDisplay === true){
-      mycomp = <Chatroom />;
+      mycomp = <Chatroom enterStickerPage={this.enterStickerPage}/>;
+    } else if(this.state.stickerDisplay === true){
+      mycomp = <Sticker />
     }
 
     return (
