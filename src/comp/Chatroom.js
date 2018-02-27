@@ -91,7 +91,7 @@ class Chatroom extends Component {
       config = (
         <div id="chatBox">
         <div id="chatDisplay">{allChats}</div>
-        <div id="controls">
+        <div id="chatroomControls">
           <input type="text" placeholder="Type your message"
           onChange={this.handleMyMsg} className="textInputs"/>
           <br/><br/>
