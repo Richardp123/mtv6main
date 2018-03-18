@@ -1,8 +1,32 @@
 .App {
-  position: absolute;
   text-align: center;
-  top: 0;
-  width: 100vw;
+}
+
+#display {
+    position:fixed;
+    background-color:#FADD;
+    left:0;
+    top:0;
+    width:100vw;
+    height:100vh;
+    cursor:crosshair;
+}
+
+#controls {
+    position:fixed;
+    bottom:0;
+    right:0;
+    width:30vw;
+    height:50px;
+    background-color:#DADD;
+}
+
+#myImg {
+    position:absolute;
+}
+
+.allImgs {
+    position:absolute;
 }
 
 #mainPage {

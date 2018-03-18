@@ -29,7 +29,7 @@ class Chatroom extends Component {
     this.setState({
       mode: 1
     })
-    this.socket = mySocket("https://mvt6serv.herokuapp.com");
+    this.socket = mySocket("http://localhost:10000");
     this.socket.emit("username", this.state.username);
 
     this.socket.on("usersjoined", (data) => {
@@ -90,16 +90,16 @@ class Chatroom extends Component {
       });
       config = (
         <div id="chatBox">
-        <div id="chatDisplay">{allChats}</div>
-        <div id="chatroomControls">
-          <input type="text" placeholder="Type your message"
-          onChange={this.handleMyMsg} className="textInputs"/>
-          <br/><br/>
-          <button onClick={this.sendChat} className="chatroomButtons">Send</button>
+          <div id="chatDisplay">{allChats}</div>
+          <div id="chatroomControls">
+            <input type="text" placeholder="Type your message"
+            onChange={this.handleMyMsg} className="textInputs"/>
+            <br/><br/>
+            <button onClick={this.sendChat} className="chatroomButtons">Send</button>
 
-          <br/><hr/><br/>
-          <button onClick={this.enterStickerPage}>ENTER STICKER PAGE</button>
-        </div>
+            <br/><hr/><br/>
+            <button onClick={this.enterStickerPage}>ENTER STICKER PAGE</button>
+          </div>
         </div>
       )
     }
