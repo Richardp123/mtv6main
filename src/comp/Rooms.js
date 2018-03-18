@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import mySocket from "socket.io-client";
 
 class Rooms extends Component {
     constructor(props){
         super(props);
-        this.state = {
-
-        }
-
-    }
-
-    componentDidMount(){
     }
 
     render() {
 
         return (
             <div>
-              <button onClick={this.props.handleDisplay}>Room 1</button>
-              <button onClick={this.props.handleDisplay}>Room 2</button>
+                <button onClick={this.props.handleDisplay.bind(this, "room1")}>Room1</button>
+                <button onClick={this.props.handleDisplay.bind(this, "room2")}>Room2</button>
+                <button onClick={this.props.handleDisplay.bind(this, "room3")}>Room3</button>
+                <button onClick={this.props.handleDisplay.bind(this, "room4")}>Room4</button>
+                <button onClick={this.props.handleDisplay.bind(this, "room5")}>Room5</button>
             </div>
-        );
+        )
     }
 }
 
