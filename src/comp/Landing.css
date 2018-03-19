@@ -26,7 +26,7 @@
   padding-right: 10%;
 }
 
-#mvtBut {
+.mvtBut {
   margin-top: 5%;
   width: 18vw;
   height: 8vw;
@@ -39,7 +39,7 @@
   color: white;
 }
 
-#mvtBut:hover {
+.mvtBut:hover {
   color: black;
   background-color: white;
 }
