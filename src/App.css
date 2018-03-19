@@ -20,6 +20,15 @@
     right:0;
     background-color:#BADD;
 }
+#chat {
+  width:30vw;
+  height: 150px;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: yellow;
+  z-index: 999;
+}
 
 #myImg {
     position:absolute;
@@ -27,4 +36,8 @@
 
 .allImgs {
     position:absolute;
+}
+
+#shotSound {
+  display: none;
 }
