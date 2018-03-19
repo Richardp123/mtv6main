@@ -44,7 +44,7 @@ class App extends Component {
                 }
 
                 this.refs["u"+this.state.myId].style.left = ev.pageX+"px";
-                // this.refs["u"+this.state.myId].style.top = ev.pageY+"px";
+                this.refs["u"+this.state.myId].style.bottom = 100+"px";
 
                 this.socket.emit("mymove", {
                     x:ev.pageX,
