@@ -7,8 +7,10 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            myImg:require("./imgs/1.png"),
-            myImg2:require("./imgs/2.png"),
+            myImg:require("./imgs/char1.png"),
+            myImg2:require("./imgs/char2.png"),
+            myImg3:require("./imgs/char3.png"),
+            hole:require("./imgs/hole.png"),
             allusers:[],
             myId:null,
             showDisplay:false,
@@ -43,7 +45,6 @@ class App extends Component {
 
                 this.refs["u"+this.state.myId].style.left = ev.pageX+"px";
                 // this.refs["u"+this.state.myId].style.top = ev.pageY+"px";
-                //this.refs."u"+this.state.myId.style
 
                 this.socket.emit("mymove", {
                     x:ev.pageX,
@@ -55,9 +56,10 @@ class App extends Component {
 
             this.refs.thedisplay.addEventListener("click", (ev)=>{
                 this.socket.emit("stick", {
-                    x:ev.pageX,
-                    y:ev.pageY,
-                    src:this.refs["u"+this.state.myId].src
+                    x:ev.pageX-25,
+                    y:ev.pageY-25,
+                    // src:this.refs["u"+this.state.myId].src
+                    src:this.state.hole
                 });
             });
 
@@ -122,6 +124,7 @@ class App extends Component {
                         {this.state.myId}
                         <img src={this.state.myImg} height={50} onClick={this.handleImage} />
                         <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
+                        <img src={this.state.myImg3} height={50} onClick={this.handleImage} />
                     </div>
                 </div>
             )
