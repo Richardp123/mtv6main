@@ -69,6 +69,11 @@ class App extends Component {
         this.setState({
           score:shotsfired
         });
+          this.socket.emit("shots", {
+              score:this.state.score
+          });
+          
+          
         console.log(this.state.score);
         this.socket.emit("stick", {
           // places gunshot image where the crosshair is
@@ -77,9 +82,20 @@ class App extends Component {
           id:this.state.myId,
           src:this.state.hole
         });
+          
+          this.socket.on("gunShots", (data)=>{
+              this.setState({
+                 score:data.score 
+              });
+          console.log("this is the big data "+data.score)
+          });
+          
+          
       });
 
     });
+      
+      
 
     this.socket.on("newsticker", (data)=>{
       this.setState({
