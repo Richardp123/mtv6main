@@ -16,20 +16,14 @@ class App extends Component {
       myId:null,
       showDisplay:false,
       stickers:[],
+      score:0,
       // Chat props
-      mode: 0,
-      username: "",
-      users: [],
-      allChats: [],
-      myMsg: ""
+      mode:0,
+      username:"",
+      users:[],
+      allChats:[],
+      myMsg:""
     }
-    this.handleImage = this.handleImage.bind(this);
-    this.handleDisplay = this.handleDisplay.bind(this);
-    // Chat functions
-    this.joinChat = this.joinChat.bind(this);
-    this.handleUsername = this.handleUsername.bind(this);
-    this.handleMyMsg = this.handleMyMsg.bind(this);
-    this.sendChat = this.sendChat.bind(this);
   }
 
   componentDidMount(){
@@ -65,7 +59,13 @@ class App extends Component {
         });
       });
 
-      this.refs.thedisplay.addEventListener("click", (ev)=>{
+      this.refs.thedisplay.addEventListener("click", (ev, shotsfired = 0)=>{
+        // this function creates gunshots
+        shotsfired++;
+        this.setState({
+          score:shotsfired
+        });
+        console.log(this.state.score);
         this.socket.emit("stick", {
           x:ev.pageX-10,
           y:ev.pageY-10,
@@ -89,11 +89,11 @@ class App extends Component {
     });
   }
 
-  handleImage(evt){
+  handleImage = (evt) => {
     this.refs["u"+this.state.myId].src = evt.target.src;
   }
 
-  handleDisplay(roomString){
+  handleDisplay = (roomString) =>{
     this.setState({
       showDisplay:true
     });
@@ -101,7 +101,7 @@ class App extends Component {
   }
 
   // Chat functions
-  joinChat() {
+  joinChat = () => {
     this.setState({
       mode:1
     });
@@ -120,21 +120,24 @@ class App extends Component {
     });
   }
 
-  handleUsername(evt) {
+  handleUsername = (evt) => {
     this.setState({
       username:evt.target.value
     });
   }
 
-  handleMyMsg(evt) {
+  handleMyMsg = (evt) => {
     this.setState({
       myMsg:evt.target.value
     });
   }
 
-  sendChat() {
+  sendChat = () => {
     var msg = this.state.username + ": " + this.state.myMsg;
     this.socket.emit("sendChat", msg);
+    this.setState({
+      myMsg:""
+    })
   }
 
   render() {
@@ -159,10 +162,9 @@ class App extends Component {
 
     if (this.state.mode === 0) {
       config = (
-        <div>
+        <div id="chatroomControls">
           <input type = "text" placeholder = "Type your username"
           onChange = {this.handleUsername} className="textInputs"/>
-          <br/><br/>
           <button onClick={this.joinChat} className="chatroomButtons">Join Chat</button>
         </div>
       )
@@ -219,7 +221,6 @@ class App extends Component {
             {allimgs}
           </div>
           <div id="controls">
-            {this.state.myId}
             <img src={this.state.myImg} height={50} onClick={this.handleImage} />
             <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
             <img src={this.state.myImg3} height={50} onClick={this.handleImage} />
