@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Syncopate");
-
 .App {
   text-align: center;
   font-family: "Syncopate";
@@ -104,4 +103,25 @@
 
 #shotSound {
   display: none;
+}
+
+/* MAP MENU */
+
+#mapMenu {
+  top: 0;
+  right: 0;
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: default;
+}
+  #mapMenu p {
+    font-size: 24px;
+  }
+
+.mapThumbnails {
+  width: 150px;
+  margin: 10px;
 }

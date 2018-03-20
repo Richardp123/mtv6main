@@ -12,6 +12,9 @@ class App extends Component {
       myImg2:require("./imgs/char2.png"),
       myImg3:require("./imgs/char3.png"),
       hole:require("./imgs/hole.png"),
+      map1:require("./imgs/map1.svg"),
+      map2:require("./imgs/map2.svg"),
+      map3:require("./imgs/map3.svg"),
       allusers:[],
       myId:null,
       showDisplay:0,
@@ -145,6 +148,12 @@ class App extends Component {
     this.refs.msgInput.value = "";
   }
 
+  // CHANGE MAPS
+  changeMap = (ev) => {
+    this.refs.thedisplay.style.backgroundImage = "url(" + ev.target.src + ")";
+    this.refs.thedisplay.style.backgroundSize = "100%";
+  }
+
   render() {
 
     var allimgs = this.state.allusers.map((obj, i)=>{
@@ -216,7 +225,14 @@ class App extends Component {
           <div ref="thedisplay" id="display">
             {allstickers}
             {allimgs}
+            <div id="mapMenu">
+              <p>CHOOSE YOUR MAP</p>
+              <img src={this.state.map1} onClick={this.changeMap} className="mapThumbnails" />
+              <img src={this.state.map2} onClick={this.changeMap} className="mapThumbnails" />
+              <img src={this.state.map3} onClick={this.changeMap} className="mapThumbnails" />
+            </div>
           </div>
+
           <div id="controls">
             {this.state.score}
             <img src={this.state.myImg} height={50} onClick={this.handleImage} />
