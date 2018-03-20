@@ -168,6 +168,7 @@ class App extends Component {
       )
     } else if (this.state.mode === 1) {
       var allChats = this.state.allChats.map((obj,i)=>{
+
         return (
           <div key={i}>
             {obj}
@@ -176,120 +177,43 @@ class App extends Component {
       });
       config = (
         <div id="chatBox">
-          <div id="chatDisplay">{allChats}</div>
+          <div id="chatDisplay"><div id="chatMsg">{allChats}</div></div>
           <div id="chatroomControls">
             <input type="text" placeholder="Type your message"
             onChange={this.handleMyMsg} className="textInputs"/>
-            <br/><br/>
             <button onClick={this.sendChat} className="chatroomButtons">Send</button>
           </div>
         </div>
       );
     }
 
-      
-    render() {
+    var allUsers = this.state.users.map((obj, i) => {
+      return (
+        <div key={i}>
+          {obj}
+        </div>
+      );
+    });
 
-        var allimgs = this.state.allusers.map((obj, i)=>{
-            return (
-                <img ref={"u"+obj} className="allImgs" src={this.state.myImg} height={50} key={i} />
-            );
-        });
-
-        var allstickers = this.state.stickers.map((obj, i)=>{
-            var mstyle = {left:obj.x, top:obj.y};
-            return (
-                <img style={mstyle} key={i} src={obj.src} height={20} className="allImgs" />
-            );
-        })
-
-        var comp = null;
-
-        // CHATROOM CONFIGURATION
-        var config = null;
-
-        if (this.state.mode === 0) {
-          config = (
-            <div>
-              <input type = "text" placeholder = "Type your username"
-              onChange = {this.handleUsername} className="textInputs"/>
-              <br/><br/>
-              <button onClick={this.joinChat} className="chatroomButtons">Join Chat</button>
-            </div>
-          )
-        } else if (this.state.mode === 1) {
-          var allChats = this.state.allChats.map((obj,i)=>{
-              
-            return (
-              <div key={i}>
-                {obj}
-              </div>
-            );
-          });
-          config = (
-            <div id="chatBox">
-              <div id="chatDisplay"><div id="chatMsg">{allChats}</div></div>
-              <div id="chatroomControls">
-                <input type="text" placeholder="Type your message"
-                onChange={this.handleMyMsg} className="textInputs"/>
-                <button onClick={this.sendChat} className="chatroomButtons">Send</button>
+    if(this.state.showDisplay === false){
+      // Landing
+      comp = <Landing handleDisplay={this.handleDisplay} />;
+    } else {
+      //Display
+      comp = (
+          <div>
+            <div id="chat">
+              <div id="allUsers">
+               <p> Users in the chatroom right now </p>
+              <div id="users">
+                {allUsers}
               </div>
             </div>
-          );
-        }
-
-        var allUsers = this.state.users.map((obj, i) => {
-          return (
-            <div key={i}>
-              {obj} 
-            </div>
-          );
-        });
-
-        if(this.state.showDisplay === false){
-            // Landing
-            comp = <Landing handleDisplay={this.handleDisplay} />;
-        } else {
-            //Display
-            comp = (
-                <div>
-                
-                    <div id="chat">
-                        <div id="allUsers">
-                           <p> Users in the chatroom right now </p>
-                        <div id="users">
-                            {allUsers}
-                        </div>
-                        </div>
-                
-                        <div id="chatBody">
-                            {config}
-                    
-                        </div>
-                    </div>
-
-
-                    <div ref="thedisplay" id="display">
-                      <audio src={audio_file} id="audio"></audio>
-                        {allstickers}
-                        {allimgs}
-                    </div>
-                    <div id="controls">
-                        {this.state.myId}
-                        <img src={this.state.myImg} height={50} onClick={this.handleImage} />
-                        <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
-                        <img src={this.state.myImg3} height={50} onClick={this.handleImage} />
-                    </div>
-                </div>
-            );
-        }
-
-        return (
-            <div className="App">
-                {comp}
-
+            <div id="chatBody">
+              {config}
             </div>
           </div>
+
           <div ref="thedisplay" id="display">
             {allstickers}
             {allimgs}
