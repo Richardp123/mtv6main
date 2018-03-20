@@ -220,24 +220,28 @@ class App extends Component {
               {config}
             </div>
           </div>
-
+            
           <div ref="thedisplay" id="display">
             {allstickers}
             {allimgs}
-            <div id="mapMenu">
-              <p>CHOOSE YOUR MAP</p>
-              <img src={this.state.map1} onClick={this.changeMap} className="mapThumbnails" />
-              <img src={this.state.map2} onClick={this.changeMap} className="mapThumbnails" />
-              <img src={this.state.map3} onClick={this.changeMap} className="mapThumbnails" />
+          </div>
+            <div id="topBar">
+          <div id="controls">
+            <div id="scoreDiv"><p>Your Score is: &nbsp;</p>{this.state.score}&nbsp;&nbsp;</div>
+            <div id="charDiv">
+                <p>Choose a character</p>
+                <img src={this.state.myImg} height={50} onClick={this.handleImage} />
+                <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
+                <img src={this.state.myImg3} height={50} onClick={this.handleImage} />
             </div>
           </div>
-
-          <div id="controls">
-            {this.state.score}
-            <img src={this.state.myImg} height={50} onClick={this.handleImage} />
-            <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
-            <img src={this.state.myImg3} height={50} onClick={this.handleImage} />
-          </div>
+            <div id="mapMenu">
+                <p>CHOOSE YOUR MAP</p>
+                <img src={this.state.map1} onClick={this.changeMap} className="mapThumbnails" />
+                <img src={this.state.map2} onClick={this.changeMap} className="mapThumbnails" />
+                <img src={this.state.map3} onClick={this.changeMap} className="mapThumbnails" />
+            </div>
+            </div>
         </div>
       );
     }
