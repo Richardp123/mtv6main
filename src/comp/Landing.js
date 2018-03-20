@@ -4,6 +4,7 @@ import "./Landing.css";
 class Landing extends Component {
   constructor(props){
     super(props);
+
   }
 
   render() {
