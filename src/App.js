@@ -170,7 +170,6 @@ class App extends Component {
       )
     } else if (this.state.mode === 1) {
       var allChats = this.state.allChats.map((obj,i)=>{
-
         return (
           <div key={i}>
             {obj}
@@ -203,31 +202,31 @@ class App extends Component {
     } else {
       //Display
       comp = (
-          <div>
-            <div id="chat">
-              <div id="allUsers">
-               <p> Users in the chatroom right now </p>
-              <div id="users">
-                {allUsers}
-              </div>
-            </div>
-            <div id="chatBody">
-              {config}
+        <div>
+          <div id="chat">
+            <div id="allUsers">
+             <p> Users in the chatroom right now </p>
+            <div id="users">
+              {allUsers}
             </div>
           </div>
-
-          <div ref="thedisplay" id="display">
-            {allstickers}
-            {allimgs}
-          </div>
-          <div id="controls">
-            <img src={this.state.myImg} height={50} onClick={this.handleImage} />
-            <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
-            <img src={this.state.myImg3} height={50} onClick={this.handleImage} />
+          <div id="chatBody">
+            {config}
           </div>
         </div>
-      );
-    }
+
+        <div ref="thedisplay" id="display">
+          {allstickers}
+          {allimgs}
+        </div>
+        <div id="controls">
+          <img src={this.state.myImg} height={50} onClick={this.handleImage} />
+          <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
+          <img src={this.state.myImg3} height={50} onClick={this.handleImage} />
+        </div>
+      </div>
+    );
+  }
 
     return (
       <div className="App">

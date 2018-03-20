@@ -1,94 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Syncopate");
+
 .App {
   text-align: center;
+  font-family: "Syncopate";
 }
 
 #display {
-    width:100vw;
-    height:100vh;
-    position:fixed;
-    left:0;
-    top:0;
-    background-color:#FADD;
-    cursor:crosshair;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #FADD;
+  cursor: crosshair;
 }
 
 #controls {
-    width:30vw;
-    height:75px;
-    position:fixed;
-    bottom:0;
-    right:0;
-    background-color:#BADD;
+  width: 30vw;
+  height: 75px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #BADD;
 }
+
 #chat {
   width: 450px;
   height: 100vh;
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   background-color: #303030;
   z-index: 999;
 }
 
 #users {
-    background-color: #4f4e4e;
-    color:white;
-    height: 20vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-#chatDisplay{
-    position: relative;
-    background-color: #4f4e4e;
-    color: white;
-    height: 55vh;
-    overflow: hidden;
-    text-align: left;
-    padding: 20px;
-}
-#chatMsg{
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-}
-#chatroomControls button{
-    margin-top: 40px;
-    margin-left: 10px;
-    width: 80px;
-    padding: 8px;
-    border-style: none;
-    background-color: grey;
-    color: white;
-}
-#chatroomControls input{
-    width: 280px;
-    padding: 8px;
+  background-color: #4f4e4e;
+  color: white;
+  height: 20vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
-#chatBody{
-    position: absolute;
-    bottom: 0;
-    padding: 30px;
+#chatDisplay {
+  position: relative;
+  background-color: #4f4e4e;
+  color: white;
+  height: 55vh;
+  overflow: hidden;
+  text-align: left;
+  padding: 20px;
 }
-#chatName{
-    color:red;
+
+#chatMsg {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+}
+
+#chatroomControls button {
+  font-family: "Syncopate";
+  margin-top: 40px;
+  margin-left: 10px;
+  width: 120px;
+  padding: 8px;
+  border-style: none;
+  background-color: grey;
+  color: white;
+}
+
+#chatroomControls input {
+  font-family: "Syncopate";
+  width: 240px;
+  padding: 8px;
+}
+
+#chatBody {
+  position: absolute;
+  bottom: 0;
+  padding: 30px;
+}
+
+#chatName {
+  color: red;
 }
 
 #allUsers p {
-    color: white;
-    font-weight: 600;
-    font-size: 1.5em;
-    margin-top: 40px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-top: 40px;
 }
 
 #myImg {
-    position:absolute;
+  position: absolute;
 }
 
 .allImgs {
-    position:absolute;
+  position: absolute;
 }
 
 #shotSound {

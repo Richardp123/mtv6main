@@ -19,23 +19,24 @@
 }
 
 #mvtInfo {
+  font-size: 2em;
   position: relative;
   top: 25%;
-  font-size: 2em;
   padding-left: 10%;
   padding-right: 10%;
 }
 
 .mvtBut {
-  margin-top: 5%;
+  font-family: "Syncopate";
+  font-size: 1em;
+  font-weight: bold;
+  margin: 10px;
   width: 18vw;
   height: 8vw;
   border-style: solid;
   border-width: 15px;
   border-color: gray;
   background-color: black;
-  font-size: 1.5em;
-  font-weight: bold;
   color: white;
 }
 

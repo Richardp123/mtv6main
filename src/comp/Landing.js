@@ -10,7 +10,7 @@ class Landing extends Component {
     return (
       <div>
         <div id="mainPage">
-          <div id="mvtInfo">MOTOR VEHICKLE FEFT IS THE SICKSTH ITTERATION OF THE POPULAR CAR STEALING GAME MOTER VHIKKEL THEPHTD. ITS GOT AKSHIN PACKED CAR STEELING AND DRIVING. PLAY WITH YOURE FEIRNDS OR ALONE. YOU WILL HAVE LOTS OF FUNS.
+          <div id="mvtInfo"><b>MOTOR VEHICLE THEFT VI</b> IS THE SIXTH ITERATION OF THE POPULAR CAR STEALING GAME MOTOR VEHICLE THEFT. ITS GOT ACTION PACKED CAR STEALING AND DRIVING. PLAY WITH YOUR FRIENDS OR ALONE. YOU WILL HAVE LOTS OF FUN.
             <br />
             <button onClick={this.props.handleDisplay.bind(this, "room1")} className="mvtBut">Room 1</button>
             <button onClick={this.props.handleDisplay.bind(this, "room2")} className="mvtBut">Room 2</button>
