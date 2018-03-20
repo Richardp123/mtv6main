@@ -9,7 +9,8 @@ class Signup extends Component {
 
   render() {
     return (
-      <div id="chatroomControls">
+      <div id="signupPage">
+        <h1>Enter a username to start the game</h1>
         <input type = "text" placeholder = "Type your username"
         onChange = {this.props.handleUsername} id="usernameInput"/>
         <button onClick={this.props.joinChat} className="chatroomButtons">ENTER</button>
