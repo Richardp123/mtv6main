@@ -151,7 +151,6 @@ class App extends Component {
   // CHANGE MAPS
   changeMap = (ev) => {
     this.refs.thedisplay.style.backgroundImage = "url(" + ev.target.src + ")";
-    this.refs.thedisplay.style.backgroundSize = "100%";
   }
 
   render() {

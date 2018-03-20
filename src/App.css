@@ -11,6 +11,8 @@
   left: 0;
   top: 0;
   background-color: #FADD;
+    background-image:url(imgs/background.svg);
+    background-size: 100%;
   cursor: crosshair;
 }
 
@@ -37,7 +39,7 @@
   background-color: #4f4e4e;
   color: white;
   height: auto;
-max-height: 15vh;
+  max-height: 15vh;
   overflow-x: hidden;
   overflow-y: scroll;
   margin-left: 30px;
