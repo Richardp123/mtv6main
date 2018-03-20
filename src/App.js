@@ -172,6 +172,7 @@ class App extends Component {
           )
         } else if (this.state.mode === 1) {
           var allChats = this.state.allChats.map((obj,i)=>{
+              
             return (
               <div key={i}>
                 {obj}
@@ -180,11 +181,10 @@ class App extends Component {
           });
           config = (
             <div id="chatBox">
-              <div id="chatDisplay">{allChats}</div>
+              <div id="chatDisplay"><div id="chatMsg">{allChats}</div></div>
               <div id="chatroomControls">
                 <input type="text" placeholder="Type your message"
                 onChange={this.handleMyMsg} className="textInputs"/>
-                <br/><br/>
                 <button onClick={this.sendChat} className="chatroomButtons">Send</button>
               </div>
             </div>
@@ -194,7 +194,7 @@ class App extends Component {
         var allUsers = this.state.users.map((obj, i) => {
           return (
             <div key={i}>
-              {obj}
+              {obj} 
             </div>
           );
         });
@@ -206,15 +206,19 @@ class App extends Component {
             //Display
             comp = (
                 <div>
+                
                     <div id="chat">
-                    {config}
-                    <div id="allUsers">
-                      Users in the chatroom right now
-                      <div id="users">
-                      {allUsers}
-                      </div>
-                    </div>
-
+                        <div id="allUsers">
+                           <p> Users in the chatroom right now </p>
+                        <div id="users">
+                            {allUsers}
+                        </div>
+                        </div>
+                
+                        <div id="chatBody">
+                            {config}
+                    
+                        </div>
                     </div>
 
 
