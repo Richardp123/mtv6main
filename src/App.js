@@ -87,7 +87,7 @@ class App extends Component {
 
     this.socket.on("newmove", (data)=>{
       this.refs["u"+data.id].style.left = data.x+"px";
-      this.refs["u"+data.id].style.top = data.y+"px";
+      this.refs["u"+data.id].style.bottom = -10+"px";
       this.refs["u"+data.id].src = data.src;
     });
   }
@@ -149,7 +149,7 @@ class App extends Component {
 
     var allimgs = this.state.allusers.map((obj, i)=>{
       return (
-        <img ref={"u"+obj} className="allImgs" src={this.state.myImg} height={50} key={i} />
+        <img ref={"u"+obj} className="allImgs" src={this.state.myImg} height={150} key={i} />
       );
     });
 
