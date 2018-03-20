@@ -59,8 +59,9 @@ class App extends Component {
         });
       });
 
-      this.refs.thedisplay.addEventListener("click", (ev, shotsfired = 0)=>{
+      this.refs.thedisplay.addEventListener("click", (ev, shotsfired)=>{
         // this function creates gunshots
+        shotsfired = this.state.score;
         shotsfired++;
         this.setState({
           score:shotsfired
@@ -205,7 +206,7 @@ class App extends Component {
         <div>
           <div id="chat">
             <div id="allUsers">
-             <p> Users in the chatroom right now </p>
+             <p>Users online</p>
             <div id="users">
               {allUsers}
             </div>
@@ -220,6 +221,7 @@ class App extends Component {
           {allimgs}
         </div>
         <div id="controls">
+          {this.state.score}
           <img src={this.state.myImg} height={50} onClick={this.handleImage} />
           <img src={this.state.myImg2} height={50} onClick={this.handleImage} />
           <img src={this.state.myImg3} height={50} onClick={this.handleImage} />
