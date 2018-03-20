@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    // TODO: Change socket to heroku link
     this.socket = mySocket("http://localhost:10000");
 
     this.socket.on("userjoined", (data)=>{
@@ -41,7 +42,7 @@ class App extends Component {
       });
 
       this.refs.thedisplay.addEventListener("mousemove", (ev)=>{
-
+        // This function moves your character horizontally across the screen on mousemove
         if(this.state.myId === null){
           //FAIL
           return false;
@@ -53,7 +54,7 @@ class App extends Component {
 
         this.socket.emit("mymove", {
           x:ev.pageX,
-          y:ev.pageY,
+          // y:ev.pageY,
           id:this.state.myId,
           src:this.refs["u"+this.state.myId].src
         });
@@ -68,6 +69,7 @@ class App extends Component {
         });
         console.log(this.state.score);
         this.socket.emit("stick", {
+          // places gunshot image where the crosshair is
           x:ev.pageX-10,
           y:ev.pageY-10,
           id:this.state.myId,
@@ -91,10 +93,12 @@ class App extends Component {
   }
 
   handleImage = (evt) => {
+    // Changes characters appearance
     this.refs["u"+this.state.myId].src = evt.target.src;
   }
 
   handleDisplay = (roomString) =>{
+    // Joins room from landing page
     this.setState({
       showDisplay:true
     });
@@ -103,6 +107,7 @@ class App extends Component {
 
   // Chat functions
   joinChat = () => {
+    // displays the input and button for typing and sending messages
     this.setState({
       mode:1
     });
@@ -133,12 +138,11 @@ class App extends Component {
     });
   }
 
-  sendChat = () => {
+  sendChat = (ev) => {
+    ev.preventDefault();
     var msg = this.state.username + ": " + this.state.myMsg;
     this.socket.emit("sendChat", msg);
-    this.setState({
-      myMsg:""
-    })
+    this.refs.msgInput.value = "";
   }
 
   render() {
@@ -181,9 +185,10 @@ class App extends Component {
         <div id="chatBox">
           <div id="chatDisplay"><div id="chatMsg">{allChats}</div></div>
           <div id="chatroomControls">
-            <input type="text" placeholder="Type your message"
-            onChange={this.handleMyMsg} className="textInputs"/>
-            <button onClick={this.sendChat} className="chatroomButtons">Send</button>
+            <form onSubmit={this.sendChat}>
+              <input ref="msgInput" type="text" placeholder="Type your message" onChange={this.handleMyMsg} className="textInputs"/>
+              <button className="chatroomButtons">Send</button>
+            </form>
           </div>
         </div>
       );
