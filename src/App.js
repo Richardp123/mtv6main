@@ -42,9 +42,8 @@ class App extends Component {
       });
 
       this.refs.thedisplay.addEventListener("mousemove", (ev)=>{
-        // This function moves your character horizontally across the screen on mousemove
+        // moves your character horizontally across the screen on mousemove
         if(this.state.myId === null){
-          //FAIL
           return false;
         }
 
@@ -61,7 +60,7 @@ class App extends Component {
       });
 
       this.refs.thedisplay.addEventListener("click", (ev, shotsfired)=>{
-        // this function creates gunshots
+        // creates gunshots and records score
         shotsfired = this.state.score;
         shotsfired++;
         this.setState({
