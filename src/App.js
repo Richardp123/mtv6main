@@ -87,7 +87,6 @@ class App extends Component {
               this.setState({
                  score:data.score 
               });
-          console.log("this is the big data "+data.score)
           });
           
           
@@ -166,7 +165,12 @@ class App extends Component {
 
   // CHANGE MAPS
   changeMap = (ev) => {
-    this.refs.thedisplay.style.backgroundImage = "url(" + ev.target.src + ")";
+      var mapChoice = "url(" + ev.target.src + ")";
+      this.socket.emit("mapChange", mapChoice);
+      
+      this.socket.on("currentMap", (data)=>{
+              this.refs.thedisplay.style.backgroundImage = data;
+          });
   }
 
   render() {
