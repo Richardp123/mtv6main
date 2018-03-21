@@ -49,6 +49,9 @@ class App extends Component {
         if(this.state.myId === null){
           return false;
         }
+          if(!this.refs["u"+this.state.myId]) {
+              return false;
+          }
 
         this.refs["u"+this.state.myId].style.height = 150+"px";
         this.refs["u"+this.state.myId].style.left = ev.pageX+"px";
