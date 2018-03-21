@@ -48,6 +48,9 @@ class App extends Component {
         if(this.state.myId === null){
           return false;
         }
+        if(!this.refs["u"+this.state.myId]) {
+          return false;
+        }
 
         this.refs["u"+this.state.myId].style.height = 150+"px";
         this.refs["u"+this.state.myId].style.left = ev.pageX+"px";
@@ -55,7 +58,6 @@ class App extends Component {
 
         this.socket.emit("mymove", {
           x:ev.pageX,
-          // y:ev.pageY,
           id:this.state.myId,
           src:this.refs["u"+this.state.myId].src
         });
@@ -82,11 +84,11 @@ class App extends Component {
           src:this.state.hole
         });
 
-          this.socket.on("gunShots", (data)=>{
-            this.setState({
-             score:data.score
-            });
+        this.socket.on("gunShots", (data)=>{
+          this.setState({
+           score:data.score
           });
+        });
 
       });
 
