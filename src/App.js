@@ -31,7 +31,7 @@ class App extends Component {
 
   componentDidMount(){
     // TODO: Change socket to heroku link
-    this.socket = mySocket("http://localhost:10000");
+    this.socket = mySocket("https://mvt6serv.herokuapp.com/");
 
     this.socket.on("userjoined", (data)=>{
       this.setState({
