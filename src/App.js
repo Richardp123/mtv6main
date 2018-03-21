@@ -30,8 +30,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    // TODO: Change socket to heroku link
-    this.socket = mySocket("http://localhost:10000");
+    this.socket = mySocket("https://mvt6serv.herokuapp.com/");
 
     this.socket.on("userjoined", (data)=>{
       this.setState({
@@ -69,11 +68,11 @@ class App extends Component {
         this.setState({
           score:shotsfired
         });
-          this.socket.emit("shots", {
-              score:this.state.score
-          });
-          
-          
+        this.socket.emit("shots", {
+          score:this.state.score
+        });
+
+
         console.log(this.state.score);
         this.socket.emit("stick", {
           // places gunshot image where the crosshair is
@@ -82,19 +81,18 @@ class App extends Component {
           id:this.state.myId,
           src:this.state.hole
         });
-          
+
           this.socket.on("gunShots", (data)=>{
-              this.setState({
-                 score:data.score 
-              });
+            this.setState({
+             score:data.score
+            });
           });
-          
-          
+
       });
 
     });
-      
-      
+
+
 
     this.socket.on("newsticker", (data)=>{
       this.setState({
@@ -167,10 +165,10 @@ class App extends Component {
   changeMap = (ev) => {
       var mapChoice = "url(" + ev.target.src + ")";
       this.socket.emit("mapChange", mapChoice);
-      
+
       this.socket.on("currentMap", (data)=>{
-              this.refs.thedisplay.style.backgroundImage = data;
-          });
+        this.refs.thedisplay.style.backgroundImage = data;
+      });
   }
 
   render() {
@@ -240,7 +238,7 @@ class App extends Component {
               {config}
             </div>
           </div>
-            
+
           <div ref="thedisplay" id="display">
             {allstickers}
             {allimgs}
@@ -256,12 +254,12 @@ class App extends Component {
             </div>
           </div>
             <div id="mapMenu">
-                <p>CHOOSE YOUR MAP</p>
-                <img src={this.state.map1} onClick={this.changeMap} className="mapThumbnails" />
-                <img src={this.state.map2} onClick={this.changeMap} className="mapThumbnails" />
-                <img src={this.state.map3} onClick={this.changeMap} className="mapThumbnails" />
+              <p>CHOOSE YOUR MAP</p>
+              <img src={this.state.map1} onClick={this.changeMap} className="mapThumbnails" />
+              <img src={this.state.map2} onClick={this.changeMap} className="mapThumbnails" />
+              <img src={this.state.map3} onClick={this.changeMap} className="mapThumbnails" />
             </div>
-            </div>
+          </div>
         </div>
       );
     }
